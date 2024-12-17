@@ -1,20 +1,23 @@
 const express = require("express");
 const http = require("http");
+const dotenv = require("dotenv");
 const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
 
+dotenv.config();
+
 const io = new Server(server, {
   cors: {
     origin: [
       "http://192.168.0.69:3001",
-      "http://192.168.0.233:3002",
-      "http://192.168.0.69:3003",
+      "https://cm-web-app-next.up.railway.app/",
+      "http://localhost:3000",
     ],
-    methods: ["GET", "POST"], // Métodos permitidos
-    allowedHeaders: ["Content-Type"], // Encabezados permitidos
-    credentials: true, // Habilitar credenciales (cookies, etc.)
+    methods: ["GET", "POST"], 
+    allowedHeaders: ["Content-Type"], 
+    credentials: true, 
   },
 });
 
@@ -39,8 +42,8 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = 3000;
-const HOST = "192.168.0.69"; //cambiar para que funcione para el pc de pipe 192.168.0.69
+const port = process.env.PORT || 3000;
+const HOST = "https://websocket-cmapp.up.railway.app/"; //cambiar para que funcione para el pc de pipe 192.168.0.69
 server.listen(port, HOST, () => {
   console.log(`Servidor WebSocket corriendo en http://${HOST}:${port}`);
 });
