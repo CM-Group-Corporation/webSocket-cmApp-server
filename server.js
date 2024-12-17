@@ -43,7 +43,7 @@ io.on("connection", (socket) => {
 });
 
 const port = process.env.PORT || 3000;
-const HOST = "https://websocket-cmapp.up.railway.app/"; //cambiar para que funcione para el pc de pipe 192.168.0.69
+const HOST = "0.0.0.0"; 
 server.listen(port, HOST, () => {
   console.log(`Servidor WebSocket corriendo en http://${HOST}:${port}`);
 });
