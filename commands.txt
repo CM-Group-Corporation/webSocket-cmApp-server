@@ -1,0 +1,7 @@
+Sirve para usar un lenguaje mas moderno sobre todo en los import
+npm i @babel/node @babel/core @babel/preset-env @babel/cli -D
+npm i nodemon -D
+
+"scripts":{
+"start": "nodemon src/index.js --exec babel-node",
+}
