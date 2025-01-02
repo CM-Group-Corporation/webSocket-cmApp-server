@@ -13,7 +13,7 @@ const io = new Server(server, {
     origin: [
       "http://192.168.0.69:3001",
       "http://localhost:3000",
-      "https://cm-admin-web-app.up.railway.app/"
+      "https://cm-admin-web-app.up.railway.app" // Removed trailing slash
     ],
     methods: ["GET", "POST"], 
     allowedHeaders: ["Content-Type"], 
