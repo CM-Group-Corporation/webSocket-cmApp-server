@@ -12,9 +12,8 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://192.168.0.69:3001",
-      "https://cm-web-app-next.up.railway.app/",
       "http://localhost:3000",
-      "https://cm-admin-web-app.up.railway.app"
+      "https://cm-admin-web-app.up.railway.app/"
     ],
     methods: ["GET", "POST"], 
     allowedHeaders: ["Content-Type"], 
