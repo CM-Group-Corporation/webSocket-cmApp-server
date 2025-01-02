@@ -14,6 +14,7 @@ const io = new Server(server, {
       "http://192.168.0.69:3001",
       "https://cm-web-app-next.up.railway.app/",
       "http://localhost:3000",
+      "https://cm-admin-web-app.up.railway.app"
     ],
     methods: ["GET", "POST"], 
     allowedHeaders: ["Content-Type"], 
@@ -24,7 +25,6 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("Client connected:", socket.id);
 
-  // Escuchar el evento 'updated-table'
   socket.on("updated-table", (data) => {
     const { tableName, updatedData } = data;
 
@@ -33,7 +33,6 @@ io.on("connection", (socket) => {
       `table Name: ${tableName} y Payload: ${JSON.stringify(updatedData)}`
     );
 
-    // Ejemplo: Emitir el cambio a todos los demás clientes conectados
     socket.broadcast.emit("table-change", { tableName, updatedData });
   });
 
